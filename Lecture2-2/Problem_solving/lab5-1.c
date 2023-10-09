@@ -18,8 +18,6 @@
 *
 * Summary of this function : 
 *   This function calculates multipulation, division, remainder, plus of two values.
-*
-* Parameter : int val1, int val2, int *re1, int *re2, int *re3, int *re4 / By pointer
 * 
 */
 struct 
