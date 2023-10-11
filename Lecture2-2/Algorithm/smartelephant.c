@@ -9,27 +9,14 @@ typedef struct
   int iq;
 } EP;
 
-void sort(EP ep[], int k) {
+int compare(const void *a, const void *b) {
   EP temp;
-  for (int i = 0; i < k-1; i++)
-  {
-    for (int j = i+1; j < k; j++)
-    {
-      if (ep[i].w > ep[j].w)
-      {
-        temp = ep[i]; // Create temporary variable of type EP.
-        ep[i] = ep[j];
-        ep[j] = temp;
-      } else if(ep[i].w == ep[j].w){
-        if (ep[i].iq > ep[j].iq){
-          temp = ep[i];
-          ep[i] = ep[j];
-          ep[j] = temp;
-        }
-        
-      }
-    }
-  }
+  EP *epA = (EP *)a;
+  EP *epB = (EP *)b;
+  
+  if(epA->w == epB->w)
+    return epA->iq - epB->iq;
+  return epA->w - epB->w;
 }
 
 
@@ -94,7 +81,7 @@ int main(){
 
   fclose(filePtr);
 
-  sort(ep, n);
+  qsort(ep, n, sizeof(EP), compare);
 
   find_longest_subsequence(ep, n);
 
