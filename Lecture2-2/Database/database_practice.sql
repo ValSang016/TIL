@@ -51,13 +51,17 @@ select * from instructor where dept_name = 'Biology'; -- 하지만 original DB�
 
 select curdate();
 
-select * from teaches;
-select * from instructor natural join teaches;
+select * from takes;
+SELECT *
+FROM student
+LEFT JOIN takes ON student.ID = takes.ID
+LEFT JOIN course ON takes.course_id = course.course_id;
 select * from instructor;
 
 desc instructor;
 select * from grade_points;
-select * from takes;
+delete from instructor where ID = '43779';
+
 select * from (takes natural join course) NATURAL LEFT JOIN grade_points;
 select * from student natural join (select ID, sum(credits) from takes natural join course group by ID) as K;
 select takes.ID, avg(points) as GPA from takes join grade_points using (grade) natural join student  group by ID;
@@ -72,3 +76,36 @@ select ID, sum(if(grade is null, 0, credits)) as credit_sum,
 union
 select ID, null, null from student
 where ID not in (select ID from takes)) as derived_table;
+
+select year, sum(credits)
+from takes natural join course
+group by year
+order by year;
+
+create view tot_credits(year, num_credits) as
+select year, sum(credits)
+from takes natural join course
+group by year
+order by year;
+
+select * from tot_credits;
+
+select * from takes full join takes using (ID);
+
+select * from section;
+select course_id from section as S where year= '2005' and
+exists (select *
+from section as T where year= '2002' and
+S.course_id= T .course_id);
+
+drop table grade_points;
+select * from grade_points;
+delete from grade_points;
+alter table grade_points drop grade;
+alter table grade_points add grade varchar(5);
+
+select 'A' from takes;
+select building from department where building like '___%';
+select building from department group by building;
+
+select count(ID) from student left join instructor using (ID) group by ID;
