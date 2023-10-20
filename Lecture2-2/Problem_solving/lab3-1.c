@@ -17,7 +17,9 @@ int word_count(char string[]){
 
 void main(){
   char string[100] = "";
-  scanf("%[^\n]s", &string); //****
+  fgets(string, sizeof(string), stdin);
+  // scanf("%s", &string); //****
+  printf("%s", string);
   int num = word_count(string);
   printf("%d", num);
 }

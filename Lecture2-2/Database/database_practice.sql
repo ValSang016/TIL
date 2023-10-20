@@ -45,7 +45,7 @@ insert into instructor_info values ('69987', 'white', 'Taylor'); -- X
 
 select * from instructor where dept_name = 'Finance';
 create view instructor_FC as select * from instructor where dept_name = 'Finance';
-insert into instructor_FC values ('25565', 'Brown', 'Biology', '100000');
+insert into instructor_FC values ('25561', 'Brown', 'Biology', '100000');
 select * from instructor_FC; -- 위의 insert에 오류른 없으나 반영되지 않음 
 select * from instructor where dept_name = 'Biology'; -- 하지만 original DB에는 반영됨!!
 
@@ -108,4 +108,9 @@ select 'A' from takes;
 select building from department where building like '___%';
 select building from department group by building;
 
-select count(ID) from student left join instructor using (ID) group by ID;
+select count(*) from student  join instructor;
+
+select date_format(curdate(),'%m/%d/%y') today;
+create index stID on student(ID);
+
+select * from student where stID = "1018";
