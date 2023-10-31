@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+//Input 파일의 문자 하나하나 받아와서 출력하기
+
 void main()
 {
   int i;
@@ -19,11 +21,8 @@ void main()
     // } while (ch != EOF);
 
     while ((ch = fgetc(myFile)) != EOF)
-    {
       putchar(ch);
-    }
     
-
     // ch = fgetc(myFile);
     // while (ch != EOF)
     // {
