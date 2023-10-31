@@ -72,14 +72,15 @@ void main()
   scanf("%lu", &M);
 
   // 암호화 과정 추가
-  unsigned long C = (unsigned long long)pow(M, e) % n;
-  // unsigned long C = power(M,e,n);
-
+  // unsigned long C = (unsigned long long)pow(M, e) % n;
+  unsigned long C = power(M,e,n);
+  
   unsigned long d_before = d;
-  d = mod_exp(C, d, n);
+  // d = mod_exp(C, d, n);
+  printf("%lu", d);
   // 복호화 과정 추가
-  unsigned long decrypted_message = (unsigned long long)pow(C, d) % n;
-  // unsigned long decrypted_message = power(C, d, n);
+  // unsigned long decrypted_message = (unsigned long long)pow(C, d) % n;
+  unsigned long decrypted_message = power(C, d, n);
   printf("Decrypted message: %lu\n", decrypted_message);
 
   printf("P(%lu, %lu, S(%lu, %lu), Cyphertext : %lu", e, n, d_before, n, C);

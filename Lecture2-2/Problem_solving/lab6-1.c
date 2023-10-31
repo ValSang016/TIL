@@ -44,8 +44,11 @@ int string_len(char* string){
 */
 int string_divide(char* search_string, char* front, char* end){
     while(*search_string != '*'){
-      if(!*search_string)
+      if(!*search_string){
+        search_string++;
+        *front = '\0';
         return 0;
+      } 
       *front++ = *search_string++;
     }
 

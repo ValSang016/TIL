@@ -15,5 +15,6 @@ for (p= s + 10; *p != NULL; p++)
   if(*p==' ')
     *p = '\n';
 }
-printf("%s", s);
+// printf("%s", s);
+puts(s);
 }

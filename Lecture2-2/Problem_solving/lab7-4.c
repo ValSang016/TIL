@@ -1,6 +1,7 @@
 #include <stdio.h>
 #define MAX 5
 
+//제곱
 double pow(float a, int n){
   if(n < 0 || n > MAX){
     printf("array boundary error");

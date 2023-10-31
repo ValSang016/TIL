@@ -13,12 +13,12 @@ void main(){
   float EPS;
   float PER;
 
-  for (int i = 0; i < 3; i++)
+  for (int i = 0; i < 1; i++)
   {
     struct Cal cal;
     printf("Enter the name of stock, EPS, PER orderly.");
-    scanf("%c %f %f", &cal.name, &cal.EPS, &cal.PER);
-    printf("Price of %c stock : $%6.3f\n", name, cal.EPS*cal.PER);
+    scanf("%s %f %f", cal.name, &cal.EPS, &cal.PER);
+    printf("Price of %s stock : $%6.3f\n", cal.name, cal.EPS*cal.PER);
   }
   
 

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #define MAX 5
 
+//정한 인덱스까지의 함
 int sum_of(int a[], int n){
   if(n < 1 || n > MAX){
     printf("array boundary error");

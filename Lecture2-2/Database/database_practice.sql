@@ -88,6 +88,8 @@ from takes natural join course
 group by year
 order by year;
 
+
+
 select * from tot_credits;
 
 select * from takes full join takes using (ID);
@@ -110,7 +112,97 @@ select building from department group by building;
 
 select count(*) from student  join instructor;
 
+select now();
+select date(now());
+select curdate();
 select date_format(curdate(),'%m/%d/%y') today;
 create index stID on student(ID);
 
 select * from student where stID = "1018";
+
+select count(distinct ID)
+from takes
+where (course_id, sec_id, semester, year) in (select course_id, sec_id, semester, year from teaches natural join instructor where name = 'Dale');
+select count(distinct takes.ID)
+from takes, teaches, instructor
+where takes.course_id = teaches.course_id and 
+takes.sec_id = teaches.sec_id and 
+takes.semester = teaches.semester and 
+takes.year = teaches.year and 
+teaches.ID = instructor.ID and 
+instructor.name = 'Dale';
+
+Select title
+From course
+Where dept_name = "Biology" and credits = 3;
+
+select name
+from instructor
+where salary = (select max(salary) from instructor);
+
+select course_id, sec_id, count(ID)
+from takes
+where (course_id, sec_id, semester, year) 
+in (select course_id, sec_id, semester, year from section where semester = 'Fall' and year = 2010)
+group by takes.course_id, takes.sec_id ;
+
+select takes.course_id, takes.sec_id, count(ID) as enrollment
+from takes, section
+where takes.course_id=section.course_id and 
+takes.sec_id = section.sec_id and
+takes.semester = section.semester and 
+takes.year = section.year and
+takes.semester = 'Fall' and
+takes.year = 2010
+group by takes.course_id, takes.sec_id;
+
+select *
+from instructor
+where salary <= 30000;
+
+select *
+from student
+where tot_cred > 128;
+
+insert into instructor
+select ID, name, dept_name, 30000 from student where tot_cred > 126 and tot_cred<128;
+
+delete from instructor
+where ID in (select ID from student where tot_cred > 126);
+
+select *
+from instructor
+where dept_name <> 'Biology';
+
+select count(distinct S.ID)
+from student as S
+join takes as T ON S.ID = T.ID
+join course as C ON T.course_id = C.course_id
+where C.dept_name = 'Comp. Sci.';
+
+select count(distinct ID)
+from student
+where ID in ( select ID from takes as t
+						where exists (select * from course as c where dept_name = 'Comp. Sci.' and t.course_id = c.course_id));
+
+create view student_grades(ID, GPA) as
+select ID, credit_points / if(credit_sum = 0, null, credit_sum)
+from (
+select ID, sum(if(grade is null, 0, credits)) as credit_sum,
+		sum(if(grade is null, 0, credits * points)) as credit_points 
+        from takes natural join course
+        natural left join grade_points 
+        group by ID
+union
+select ID, null, null from student
+where ID not in (select ID from takes)) as derived_table;
+
+drop view student_grades;
+select * from student;
+
+select ID, sum(credits * points)/sum(credits) as GPA
+from takes natural join grade_points natural join course
+group by ID
+having GPA > 4;
+
+

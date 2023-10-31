@@ -5,16 +5,17 @@ long long extended_gcd(long long a, long long b, long long *x, long long *y) {
     if (b == 0) {
         *x = 1;
         *y = 0;
+        printf("x : %d / y : %d\n", *x, *y);
         return a;
     }
     else {
         long long x1, y1;
         long long gcd = extended_gcd(b, a % b, &x1, &y1);
-
+        printf("gcd(%d %d)\n", b, a % b);
         // Update x and y using the results of recursive call
         *x = y1;
         *y = x1 - (a / b) * y1;
-
+        printf("x : %d / y : %d\n", *x, *y);
         return gcd;
     }
 }
@@ -31,10 +32,9 @@ int main() {
   long long x_tmp=0, y_tmp=0; // 변수 초기화
   int min = 0;
 
-	x_prime=(double)A; y_prime=(double)B;
+	double gcd = extended_gcd(A, B, &x_prime, &y_prime);
 
-	double gcd=extended_gcd(A, B, &x_prime, &y_prime);
-
+  printf("%.2f %d %d\n", gcd, x_prime, y_prime);
 
 	// k = my_round(temp_x/(double)B);
 
