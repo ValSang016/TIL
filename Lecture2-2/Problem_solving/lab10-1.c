@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <String.h>
-#include <stdlib.h>
 
 struct CAR
 {
@@ -30,13 +28,13 @@ void main()
 
   FILE *inFile;
   inFile = fopen("cars.txt", "r");
-  printf("---------------------------");
-  printf("|Name  |Year  |Price  |\n");
-  printf("---------------------------");
+  printf("---------------------------\n");
+  printf("|Name      |Year    |Price  |\n");
+  printf("---------------------------\n");
   for (int i = 0; i < 4; i++)
   {
     fscanf(inFile, "%s %d %lf", name, &year, &price);
     printf("|  %s  |  %d  |  %lf  |\n", name, year, price);
   }
-  printf("---------------------------");
+  printf("---------------------------\n");
 }

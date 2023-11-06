@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 //Input 파일의 문자를 하나하나 읽어서 Output 파일에 옮기기
 
@@ -6,7 +7,7 @@ void main()
 {
   FILE *myInFile, *myOutFile;
   char ch;
-  myInFile = fopen("data.txt", "r");
+  myInFile = fopen("myinFile.txt", "r");
   if (myInFile == NULL)
   {
     printf("Could not open data.txt!\n");
