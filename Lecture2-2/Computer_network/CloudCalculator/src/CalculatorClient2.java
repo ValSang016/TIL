@@ -5,7 +5,7 @@ import java.util.*;
 public class CalculatorClient2 {
     public static void main(String[] args) {
         // 파일 위치 설정
-        String path = "ServerInfo.txt";
+        String path = "ServerInfo.dat";
 
         try (BufferedReader bis = new BufferedReader(new FileReader(path))) {
             // 파일에서 읽고 ip주소와 port번호 저장
