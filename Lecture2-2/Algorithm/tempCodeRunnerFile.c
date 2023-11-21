@@ -1,1 +1,1 @@
-Point points[100];
+fmod((360 + 

@@ -1,3 +1,13 @@
+/*
+*
+* File : LabTest.C
+* 
+* Author : Sangheon Lee(tkdgjs1315@gachon.ac.kr)
+* Date : Nov.23 2023
+* Course : Algorithm
+* Summary : This file contain code that Lab test in the class.
+*
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -98,7 +108,7 @@ int main()
     {
       fscanf(file, "%lf %lf", &points[i].x, &points[i].y); // Reading the coordinates of the points
     }
-    points[n+1].x = 0, points[n+1].y = 0;
+    points[n].x = 0, points[n].y = 0;
     grahamScan(points, n+1); // Executing the Graham scan algorithm
     if (t != T - 1)
       printf(""); // Printing blank space between test cases

@@ -1,6 +1,6 @@
 /*
 *
-* File : ContestTrip.C
+* File : LabTest.C
 * 
 * Author : Sangheon Lee(tkdgjs1315@gachon.ac.kr)
 * Date : Nov.23 2023
