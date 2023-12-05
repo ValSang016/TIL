@@ -1,4 +1,14 @@
-#define _CRT_SECURE_NO_WARNINGS
+/*
+*
+* File : lab2.C
+* 
+* Author : Sangheon Lee(tkdgjs1315@gachon.ac.kr)
+* Date : Dec.05 2023
+* Course : Problem solving
+* Summary : This file contain code that practice in the class.
+*
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -11,70 +21,80 @@ struct node {
 
 struct node *front, *back, *current, *temp;
 
-// Push() operation on a  stack
-void push(int data) {
+// Check whether the queue is empty
+int empty(){
+    if (front == NULL)
+    {
+        return -1;
+    }
+    return 0;
+}
+
+// insert() is a function that insert data in the queue 
+void insert(int data) {
     if (front == NULL)
     {
         front = (struct node*)malloc(1 * sizeof(struct node));
         front->ptr = NULL;
         front->info = data;
-        current = front;
+        back = front;
     }
     else
     {
         temp = (struct node*)malloc(1 * sizeof(struct node));
-        temp->ptr = current;
+        temp->ptr = NULL;
         temp->info = data;
-        current = temp;
+        back->ptr = temp;
         back = temp;
-
     }
-    printf("Node is Inserted\n\n");
+    printf("\nNode is Inserted\n\n");
 }
 
-int pop() {
-    top1 = top;
-
-    if (top1 == NULL)
-    {
+// delete() is a function that delete the front of queue
+int delete() {
+    temp = front;
+    if(!empty()){
+        front = front->ptr;
+        int popped = temp->info;
+        free(temp);
+        return popped;
+    }else
         printf("\nStack Underflow\n");
         return -1;
-    }
-    else
-        top1 = top1->ptr;
-    int popped = top->info;
-    free(top);
-    top = top1;
-    return popped;
 }
-
+    
+// Display the elements of the queue
 void display() {
-    // Display the elements of the stack
-    top1 = top;
+    temp = front;
 
-    if (top1 == NULL)
+    if (empty())
     {
         printf("\nStack Underflow\n");
         return;
     }
 
-    printf("The stack is \n");
-    while (top1 != NULL)
+    printf("The queue is \n");
+    while (temp != NULL)
     {
-        printf("%d--->", top1->info);
-        top1 = top1->ptr;
+        printf("%d--->", temp->info);
+        temp = temp->ptr;
     }
     printf("NULL\n\n");
 
 }
 
 int main() {
-    push(10);
-    push(20);
-    push(30);
+    insert(10);
+    insert(20);
+    insert(30);
     display();
-    printf("Popped element is :%d\n", pop());
-    push(40);
+
+    printf("Deleted element is :%d\n", delete());
+    printf("Deleted element is :%d\n", delete());
+
+    display();
+
+    insert(40);
     display();
 }
 
