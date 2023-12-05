@@ -13,8 +13,8 @@ public class Main {
         Connection con = null;
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url="jdbc:mysql://127.0.0.1/university";
-            String user="root", passwd="";
+            String url="jdbc:mysql://127.0.0.1/modelDB";
+            String user="root", passwd="1234";
             con=DriverManager.getConnection(url,user,passwd);
             System.out.println(con);
         }catch(ClassNotFoundException e){
@@ -84,7 +84,7 @@ public class Main {
         ResultSet mdrs = null;
         try {
             dbmd = con.getMetaData();
-            mdrs = dbmd.getColumns("university", null, "student", null);
+            mdrs = dbmd.getColumns("modelDB", null, "user", null);
             String[] column = { "COLUMN_NAME", "TYPE_NAME" };
             System.out.println(column[0] + "\t" + column[1]);
             while (mdrs.next()) {
