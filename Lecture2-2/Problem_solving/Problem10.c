@@ -33,11 +33,11 @@ void main()
   
   while (fscanf(inFile, "%d", &num_entity) == 1) //Caculate until empty
   {
-    double sum = 0, avg = 0, k;
+    double sum = 0, k;
     int count = 0;
     for (int i = 0; i < num_entity; i++)
     {
-      fscanf(inFile, "%lf\n", &k);
+      fscanf(inFile, "%lf", &k);
       sum += k;
       count++;
     }

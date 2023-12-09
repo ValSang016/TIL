@@ -2,10 +2,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef struct NODE *qr;
+
 typedef struct NODE
 {
   int key;
-  struct NODE *next;
+  qr *next;
 } NODE;
 
 void scanList(struct NODE *node)
@@ -29,7 +31,7 @@ void insert(struct NODE *head, int value)
     prev = p;
     p = p->next;
   }
-  new_node = (struct NODE *)malloc(sizeof(struct NODE));
+  new_node = (NODE *)malloc(sizeof(NODE));
   new_node->key = value;
   prev->next = new_node;
   new_node->next = p;

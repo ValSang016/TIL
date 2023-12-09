@@ -28,7 +28,7 @@ int main(){
 
   struct NODE *ptr, *old_ptr;
   int new_key, fail = -1;
-  node[3].key = new_key = 100;
+  node[3].key = new_key = 500;
   node[3].next = NULL;
 
   // The ptr starts at a first node.
@@ -44,12 +44,12 @@ int main(){
     
     if (ptr->key < new_key) // When the key of ptr is smaller than the new key
     {
-      old_ptr = ptr;
+      old_ptr = ptr;  //*******
       ptr = ptr->next;
     }
     else // Whene the key of ptr is larger than the new key
     {
-      old_ptr->next = &node[3];
+      old_ptr->next = &node[3];  //****
       node[3].next = ptr;
       printf("key inserted.");
       break;

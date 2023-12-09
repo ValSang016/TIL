@@ -12,7 +12,7 @@ typedef struct {
     char hobby[MAX_HOBBY_LEN];
 } Person;
 
-void readData(const char* filename, Person people[], int* count) {
+void readData(char* filename, Person people[], int* count) {
     FILE* file = fopen(filename, "r");
     if (!file) {
         perror("Error opening file");
@@ -26,7 +26,7 @@ void readData(const char* filename, Person people[], int* count) {
     fclose(file);
 }
 
-void writeData(const char* filename, Person people[], int count) {
+void writeData(char* filename, Person people[], int count) {
     FILE* file = fopen(filename, "w");
     if (!file) {
         perror("Error opening file");

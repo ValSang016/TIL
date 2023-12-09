@@ -12,11 +12,11 @@ struct node {
 struct node *top, *top1, *temp;
 
 int empty(){
-  if(top == NULL){
-    printf("Stack is empty.");
-  } else{
-    printf("Stack is not empty.");
-  }
+    if(top == NULL){
+        printf("Stack is empty.");
+    }else{
+        printf("Stack is not empty.");
+    }
 }
 
 // Push() operation on a  stack
