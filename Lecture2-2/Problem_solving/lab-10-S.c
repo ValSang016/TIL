@@ -9,7 +9,7 @@ typedef struct
   int C;
 } candidate;
 
-void readData(const char* filename, Person people[], int* count) {
+void readData(const char* filename, candidate people[], int* count) {
     FILE* file = fopen(filename, "r");
     if (!file) {
         perror("Error opening file");

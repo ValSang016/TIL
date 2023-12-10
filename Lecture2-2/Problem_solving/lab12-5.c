@@ -60,18 +60,18 @@ void insert(NODE *head, int back, char *N, int A, int M, int G)
 // Function to find the player with minimum age
 void find_min_age(NODE *head)
 {
-  head = head->next;
+  NODE *p = head->next;
   NODE *min = NULL;
   int min_age = 100;
   
   do{
-    if (head->age < min_age)
+    if (p->age < min_age)
     {
-      min_age = head->age;
-      min = head;
+      min_age = p->age;
+      min = p;
     }
-    head = head->next;
-  }while (head->next != NULL);
+    p = p->next;
+  }while (p->next != NULL);
     if(!(min==NULL)){
       printf("Min age : ");
       printf("%d %s %d %d %d\n", min->back_num, min->name, min->age, min->A_match, min->goals);
@@ -83,18 +83,18 @@ void find_min_age(NODE *head)
 // Function to find the player with maximum age
 void find_max_age(NODE *head)
 {
-  head = head->next;
+  NODE *p = head->next;
   NODE *max = NULL;
   int max_age = -1;
   
   do{
-    if (head->age > max_age)
+    if (p->age > max_age)
     {
-      max_age = head->age;
-      max = head;
+      max_age = p->age;
+      max = p;
     }
-    head = head->next;
-  }while (head->next != NULL);
+    p = p->next;
+  }while (p->next != NULL);
   if(!(max==NULL)){
     printf("Max age : ");
     printf("%d %s %d %d %d\n", max->back_num, max->name, max->age, max->A_match, max->goals);
@@ -106,18 +106,18 @@ void find_max_age(NODE *head)
 // Function to find the player with minimum goals
 void find_min_goal(NODE *head)
 {
-  head = head->next;
+  NODE *p = head->next;
   NODE *min = NULL;
   int min_goal = 100;
   
   do{
-    if (head->goals < min_goal)
+    if (p->goals < min_goal)
     {
-      min_goal = head->goals;
-      min = head;
+      min_goal = p->goals;
+      min = p;
     }
-    head = head->next;
-  }while (head->next != NULL);
+    p = p->next;
+  }while (p->next != NULL);
     if(!(min==NULL)){
       printf("Min goals : ");
       printf("%d %s %d %d %d\n", min->back_num, min->name, min->age, min->A_match, min->goals);
@@ -129,18 +129,18 @@ void find_min_goal(NODE *head)
 // Function to find the player with maximum goals
 void find_max_goal(NODE *head)
 {
-  head = head->next;
+  NODE *p = head->next;
   NODE *max = NULL;
   int max_goal = -1;
   
   do{
-    if (head->goals > max_goal)
+    if (p->goals > max_goal)
     {
-      max_goal = head->goals;
-      max = head;
+      max_goal = p->goals;
+      max = p;
     }
-    head = head->next;
-  }while (head->next != NULL);
+    p = p->next;
+  }while (p->next != NULL);
   if(!(max==NULL)){
     printf("Max goals : ");
     printf("%d %s %d %d %d\n", max->back_num, max->name, max->age, max->A_match, max->goals);
@@ -152,18 +152,18 @@ void find_max_goal(NODE *head)
 // Function to find the player with minimum A matches
 void find_min_match(NODE *head)
 {
-  head = head->next;
+  NODE *p = head->next;
   NODE *min = NULL;
   int min_match = 500;
   
   do{
-    if (head->A_match < min_match)
+    if (p->A_match < min_match)
     {
-      min_match = head->A_match;
-      min = head;
+      min_match = p->A_match;
+      min = p;
     }
-    head = head->next;
-  }while (head->next != NULL);
+    p = p->next;
+  }while (p->next != NULL);
     if(!(min==NULL)){
       printf("Min A-match : ");
       printf("%d %s %d %d %d\n", min->back_num, min->name, min->age, min->A_match, min->goals);
@@ -175,18 +175,18 @@ void find_min_match(NODE *head)
 // Function to find the player with maximum A matches
 void find_max_match(NODE *head)
 {
-  head = head->next;
+  NODE *p = head->next;
   NODE *max = NULL;
   int max_match = -1;
   
   do{
-    if (head->A_match > max_match)
+    if (p->A_match > max_match)
     {
-      max_match = head->A_match;
-      max = head;
+      max_match = p->A_match;
+      max = p;
     }
-    head = head->next;
-  }while (head->next != NULL);
+    p = p->next;
+  }while (p->next != NULL);
   if(!(max==NULL)){
     printf("Max A-match : ");
     printf("%d %s %d %d %d\n", max->back_num, max->name, max->age, max->A_match, max->goals);

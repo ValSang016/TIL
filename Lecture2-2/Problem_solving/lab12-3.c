@@ -12,6 +12,7 @@ typedef struct NODE
 
 void scanList(struct NODE *node)
 {
+  node = node->next;
   while (node != NULL)
   {
     printf(" %d ", node->key);

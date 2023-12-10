@@ -19,7 +19,7 @@ struct node {
 };
 
 
-struct node *front, *back, *current, *temp;
+struct node *front, *back, *temp;
 
 // Check whether the queue is empty
 int empty(){

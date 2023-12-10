@@ -36,6 +36,7 @@ void main()
     item = node1;
     while (item)
     {
+      printf("%d\n", item->key);
       struct NODE *delete = item;
       item = item->next;
       free(delete);

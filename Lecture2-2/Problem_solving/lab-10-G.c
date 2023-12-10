@@ -57,6 +57,7 @@ void selectionSortByAge(Person people[], int count) {
     }
 }
 
+// ******
 // Function to sort people by hobby in lexicographical order
 void selectionSortByHobby(Person people[], int count) {
     for (int i = 0; i < count - 1; i++) {
