@@ -5,10 +5,14 @@
 
 void main()
 {
-  FILE *infile;
+  FILE *infile, *outfile;
   char line[100];
   int lcount = 0;
   if ((infile = fopen("charstream.txt", "r")) == NULL){
+    printf("File Could Not Be Opened.\n");
+    exit(1);
+  }
+  if ((outfile = fopen("stream.txt", "w")) == NULL){
     printf("File Could Not Be Opened.\n");
     exit(1);
   }
@@ -17,6 +21,7 @@ void main()
   while (fgets(line, sizeof(line), infile) != NULL){
     lcount++;
     printf("Line %d: %s", lcount, line);
+    fputs(line, outfile);
   }
   fclose(infile);
 }

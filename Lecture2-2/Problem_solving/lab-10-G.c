@@ -63,6 +63,7 @@ void selectionSortByHobby(Person people[], int count) {
     for (int i = 0; i < count - 1; i++) {
         int min_idx = i;
         for (int j = i + 1; j < count; j++) {
+            // < : -1, > : 1, = : 0
             if (strcmp(people[j].hobby, people[min_idx].hobby) < 0) {
                 min_idx = j;
             }
@@ -75,14 +76,6 @@ void selectionSortByHobby(Person people[], int count) {
     }
 }
 
-
-int compareByAge(const Person* a, const Person* b) {
-    return a->age - b->age;
-}
-
-int compareByHobby(const Person* a, const Person* b) {
-    return strcmp(a->hobby, b->hobby);
-}
 
 int main() {
     Person people[MAX_PEOPLE];
