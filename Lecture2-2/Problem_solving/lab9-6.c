@@ -21,8 +21,8 @@ void main()
   }
   /* Read the input file one character at a time, and write
   the character to the output file.   */
-  while ((ch = fgetc(myInFile)) != EOF)
-    fputc(ch, myOutFile);
+  while ((ch = fgetc(myInFile)) != EOF){
+    fputc(ch, myOutFile);  }
   fclose(myInFile);
   fclose(myOutFile);
 }

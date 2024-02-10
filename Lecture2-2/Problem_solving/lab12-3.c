@@ -4,13 +4,13 @@
 
 typedef struct NODE *qr;
 
-typedef struct NODE
+typedef struct
 {
   int key;
   qr *next;
 } NODE;
 
-void scanList(struct NODE *node)
+void scanList(NODE *node)
 {
   node = node->next;
   while (node != NULL)
@@ -21,10 +21,10 @@ void scanList(struct NODE *node)
   printf("\n");
 }
 
-void insert(struct NODE *head, int value)
+void insert(NODE *head, int value)
 {
-  struct NODE *p = head->next, *prev = head;
-  struct NODE *new_node;
+  NODE *p = head->next, *prev = head;
+  NODE *new_node;
   while (p)
   {
     if (p->key > value)

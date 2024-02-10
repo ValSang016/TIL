@@ -38,18 +38,17 @@ void push(int data) {
 }
 
 int pop() {
-    top1 = top;
+    temp = top;
 
-    if (top1 == NULL)
+    if (top == NULL)
     {
         printf("\nStack Underflow\n");
         return -1;
     }
     else
-        top1 = top1->ptr;
-    int popped = top->info;
-    free(top);
-    top = top1;
+        top = top->ptr;
+    int popped = temp->info;
+    free(temp);
     return popped;
 }
 
